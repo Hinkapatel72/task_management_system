@@ -35,7 +35,6 @@ class Department(Base):
 class TaskType(enum.Enum):
     """ Model for Task Types """
 
-    __tablename__ = 'task_type'
     QUESTION = "QUESTION"
     INCIDENT = "INCIDENT"
     PROBLEM = "PROBLEM"
@@ -43,7 +42,7 @@ class TaskType(enum.Enum):
     REFUND = "REFUND"
 
     @staticmethod
-    def from_task_type(string_val):
+    def from_str(string_val):
         mapping = {
             "QUESTION": TaskType.QUESTION,
             "INCIDENT": TaskType.INCIDENT,
@@ -61,14 +60,13 @@ class TaskType(enum.Enum):
 class TaskPriority(enum.Enum):
     """ Model for Task Priority """
 
-    __tablename__ = 'task_priority'
     LOW = "LOW"
     MEDIUM = "MEDIUM"
     HIGH = "HIGH"
     URGENT = "URGENT"
 
     @staticmethod
-    def from_task_priority(string_val):
+    def from_str(string_val):
         mapping = {
             "LOW": TaskPriority.LOW,
             "MEDIUM": TaskPriority.MEDIUM,
@@ -85,7 +83,6 @@ class TaskPriority(enum.Enum):
 class TaskState(enum.Enum):
     """ Model for Task State """
 
-    __tablename__ = 'task_state'
     SCREEN = "SCREEN"
     ASSIGNED = "ASSIGNED"
     RESOLVED = "RESOLVED"
@@ -93,7 +90,7 @@ class TaskState(enum.Enum):
     UNBLOCKED = "UNBLOCKED"
 
     @staticmethod
-    def from_task_state(string_val):
+    def from_str(string_val):
         mapping = {
             "SCREEN": TaskState.SCREEN,
             "ASSIGNED": TaskState.ASSIGNED,
@@ -109,7 +106,6 @@ class TaskState(enum.Enum):
 class Role(enum.Enum):
     """ Model for staff Role """
 
-    __tablename__ = 'role'
     ADMIN = "ADMIN"
     REGULAR = "REGULAR"
 
@@ -130,15 +126,14 @@ class Role(enum.Enum):
 class UserType(enum.Enum):
     """ Model for staff Role """
 
-    __tablename__ = 'role'
     STUDENT = "STUDENT"
     EMPLOYEE = "EMPLOYEE"
 
     @staticmethod
     def from_str(string_val):
         mapping = {
-            "STUDENT": Role.STUDENT,
-            "EMPLOYEE": Role.EMPLOYEE
+            "STUDENT": UserType.STUDENT,
+            "EMPLOYEE": UserType.EMPLOYEE
         }
 
         val = mapping.get(string_val)

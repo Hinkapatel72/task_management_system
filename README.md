@@ -4,10 +4,10 @@ Task Management System allows for easy tracking of task and responsibilities acr
 ## Develpement Guide
 ### Setting up Database
 The backend service is a flask based service. Follow the steps to set the environment to run the flask app.
-Step 1: Clone the repo and move to staff dir. Following steps assume that your current working dir is `<YourProjectPath>/Tms/staff/`
+Step 1: Clone the repo and move to staff dir. Following steps assume that your current working dir is `<YourProjectPath>/Tms/src/`
 ```
 git clone <>
-cd Tms/staff/
+cd Tms/src/
 ```
 Step 2: Install mySQL server and create username and password.
 Step 4: Set mysql url in environment
