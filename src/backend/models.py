@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import UserMixin
 import enum
 
 app = Flask(__name__)
@@ -143,7 +144,7 @@ class UserType(enum.Enum):
         return val
 
 
-class User(Base):
+class User(Base, UserMixin):
     """ Model for User details """
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=True)
@@ -152,6 +153,7 @@ class User(Base):
     role = db.Column(db.Enum(Role))
     user_type = db.Column(db.Enum(UserType))
     itu_id = db.Column(db.Integer, nullable=False)
+    is_active = db.Column(db.Boolean, default=True)
 
     def __repr__(self):
         return '<User(Firstname=%s, Email=%s)>' % (self.first_name, self.email)

@@ -38,7 +38,7 @@ def find_user_by_credentials(email, password):
     except Exception as e:
         raise QueryException("Failed to find user by email and password {}. Error {}".format(id, e))
 
-    if (db_user and bcrypt.check_password_hash(db_user.password, password)):
+    if (db_user and bcrypt.check_password_hash(db_user.password, password) and db_user.is_active):
         return db_user
 
     raise ItemNotFoundException("User not found.")
@@ -78,3 +78,24 @@ def create_user(user):
             return new_user
         except Exception as exc:
             raise CreateNewItemException("Failed to create new user. Reason {}".format(exc))
+
+
+def find_user_by_id(id):
+    '''
+    find user by id.
+    @params id: user_id
+    @returns db_user if found else None
+    raise: InvalidInputException, TimeoutException, QueryException
+    '''
+    if id is None:
+        raise InvalidInputException(" None id is provided ")
+
+    db_user = None
+    try:
+        db_user = User.query.get(id)
+    except TimeoutException as e:
+        raise TimeoutException("Timeout error. Failed to get user by id. Error {}".format(e))
+    except Exception as e:
+        raise QueryException("Failed to find user by id. Error {}".format(e))
+
+    return db_user
