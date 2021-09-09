@@ -29,5 +29,5 @@ Notes
 - If flask command line is missing, make sure that your $PATH env variable has path where flask was installed.
 
 ### Setting up Webservice
-To run the URLs please run "views.py" file.
+To run the URLs please run "app.py" file.
 Open this URL "http://127.0.0.1:5000/" to see "Hello World!"

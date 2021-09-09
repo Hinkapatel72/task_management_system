@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: d59e86c8184c
+Revision ID: 8206ad4fe91f
 Revises: 
-Create Date: 2021-06-19 21:24:37.837992
+Create Date: 2021-07-25 21:24:26.918970
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'd59e86c8184c'
+revision = '8206ad4fe91f'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -38,33 +38,36 @@ def upgrade():
     sa.Column('password', sa.Text(), nullable=False),
     sa.Column('role', sa.Enum('ADMIN', 'REGULAR', name='role'), nullable=True),
     sa.Column('user_type', sa.Enum('STUDENT', 'EMPLOYEE', name='usertype'), nullable=True),
-    sa.Column('itu_id', sa.Integer(), nullable=False),
+    sa.Column('employee_id', sa.Integer(), nullable=False),
+    sa.Column('student_id', sa.Integer(), nullable=True),
     sa.Column('is_active', sa.Boolean(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('email')
+    sa.UniqueConstraint('email'),
+    sa.UniqueConstraint('employee_id'),
+    sa.UniqueConstraint('student_id')
     )
     op.create_table('employee_department_mapping',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('created_date', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
     sa.Column('modified_date', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
     sa.Column('dept_id', sa.Integer(), nullable=False),
-    sa.Column('emp_id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['dept_id'], ['department.id'], ),
-    sa.ForeignKeyConstraint(['emp_id'], ['user.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('dept_id', 'emp_id')
+    sa.UniqueConstraint('dept_id', 'user_id')
     )
     op.create_table('screener_info',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('created_date', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
     sa.Column('modified_date', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
     sa.Column('dept_id', sa.Integer(), nullable=False),
-    sa.Column('emp_id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['dept_id'], ['department.id'], ),
-    sa.ForeignKeyConstraint(['emp_id'], ['user.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('dept_id'),
-    sa.UniqueConstraint('emp_id')
+    sa.UniqueConstraint('user_id')
     )
     op.create_table('task',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),

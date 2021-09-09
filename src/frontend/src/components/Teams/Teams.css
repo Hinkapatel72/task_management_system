@@ -1,0 +1,131 @@
+.border-left-department-list {
+    width: 328px;
+    height: 76px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    border-left: 12px solid;
+}
+
+.border-color-iso {
+    border-color: #1142F1;
+}
+.border-color-admisions {
+    border-color: #00FF75;
+}
+.border-color-reg {
+    border-color: #FF6B00;
+}
+.border-color-advising {
+    border-color: #CC00FF;
+}
+.border-color-acc {
+    border-color: #FFF500;
+}
+
+.department-side-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 137%;
+    text-align: right;
+    color: #333333;
+}
+
+.team-department-detail{
+    padding: 50px;
+    border-radius: 20px;
+    width: 30rem;
+    height: 830px;
+    background: #FFFFFF;
+    border: 1px solid #AEAEAE;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.team-users-detail{
+    padding: 50px;
+    border-radius: 20px;
+    width: 50rem;
+    height: 830px;
+    background: #FFFFFF;
+    border: 1px solid #AEAEAE;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.apply-serach-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.apply-search-btn {
+    float:left;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 16px;
+    background: #1DB954;
+    box-shadow: 0px 0px 8px rgba(51, 51, 51, 0.2);
+    border-radius: 20px;
+}
+
+.status_low{
+    position: static;
+    width: 82px;
+    height: 22px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13.28px;
+    line-height: 18px;
+    text-align: center;
+    color: #333333;
+}
+#urgent {
+    background: #FFADAD;
+}
+#low{
+    background: #BBFFBB;
+}
+#meduim {
+    background: #A4D5FF;
+}
+#high{
+    background: #FFFF97;
+}
+
+.table-text-completed {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 137%;
+    color: #1DB954;
+}
+
+.table-text-other {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 137%;
+    color: #333333;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #1DB954;
+    border-color: #1DB954;
+}
+
+.pagination-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #AEAEAE;
+}

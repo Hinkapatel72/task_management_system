@@ -1,0 +1,80 @@
+URL:http://127.0.0.1:5000/api/v1/login
+Method:POST
+POST-DATA:
+    {
+        "email":"test@itu",
+        "password":"1234"
+    }
+
+URL:http://127.0.0.1:5000/api/v1/register
+Method:POST
+POST-DATA:
+    {
+        "first_name": "test",
+        "last_name" :"test",
+        "email":"test@itu",
+        "password":"1234",
+        "role":"REGular",
+        "user_type":"EMPLOYEE",
+        "employee_id":102
+    }
+
+URL: http://127.0.0.1:5000/api/v1/create-task-student
+Method:POST
+POST-DATA:
+    {
+        "studentId":2,
+        "title":"title",
+        "department":"ISO",
+        "taskType":"question",
+        "description":"F1-visa"
+    }
+
+URL: http://127.0.0.1:5000/api/v1/student-task-list
+Method:POST
+POST-DATA:
+    {
+        "id":2
+    }
+
+URL: http://127.0.0.1:5000/api/v1/create-task-staff
+Method:POST
+POST-DATA:
+    {
+        "employee_Id":2,
+        "title":"x",
+        "taskType":"QUESTION",
+        "description":"x",
+        "assignee":"t@g",
+        "department":"ISO",
+        "taskStatus":"ASSIGNED",
+        "taskPriority":"LOW"
+    }
+
+URL: http://127.0.0.1:5000/api/v1/assignee-task-list
+Method:POST
+POST-DATA:
+    {
+        "id":2
+    }
+
+
+URL:http://127.0.0.1:5000/api/v1/admin-task-list
+Method:GET
+
+URL:http://127.0.0.1:5000/api/v1/teams
+Method:POST
+POST-DATA:
+    {
+        "department": "AdvIsing"
+    }
+
+URL:http://127.0.0.1:5000/api/v1/create-department
+Method:POST
+POST-DATA:
+{
+	"department_name":"Accounting",
+	"department_email":"acccount@itu.test",
+	"department_description":"Handles payments"
+}
+

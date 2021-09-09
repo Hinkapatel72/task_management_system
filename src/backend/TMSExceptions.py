@@ -30,3 +30,6 @@ class UpdateException(TMSException):
 
 class DeleteException(TMSException):
     pass
+
+class UserInactiveException(TMSException):
+    pass
